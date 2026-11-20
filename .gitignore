@@ -1,0 +1,8 @@
+.DS_Store
+._*
+.venv/
+.env
+.claude/
+__pycache__/
+*.log
+htd-backup-*.json

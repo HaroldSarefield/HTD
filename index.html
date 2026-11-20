@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTD · Harry's To Do</title>
+  <meta name="theme-color" content="#0c0c0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { if (localStorage.getItem("htd.theme") === "light") document.documentElement.dataset.theme = "light"; } catch {}</script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#/"><i></i>HTD</a>
+    <nav class="nav" id="nav">
+      <a href="#/" data-r="">Main</a>
+      <a href="#/review" data-r="review">Review</a>
+      <a href="#/calendar" data-r="calendar">Calendar</a>
+      <span class="sep"></span>
+      <a href="#/school" data-r="school">School</a>
+      <a href="#/college" data-r="college">College</a>
+      <a href="#/lawn" data-r="lawn">Lawn Lads</a>
+      <a href="#/volunteer" data-r="volunteer">Volunteering</a>
+      <a href="#/health" data-r="health">Health</a>
+      <a href="#/training" data-r="training">Training</a>
+      <span class="sep"></span>
+      <a href="#/settings" data-r="settings">Settings</a>
+    </nav>
+    <button class="top-btn theme" id="themeBtn" type="button">Invert</button>
+    <button class="top-btn top-add" id="addBtn" type="button">+ Add</button>
+  </header>
+
+  <main class="wrap" id="view"></main>
+  <footer class="foot"><span>HTD — Harry's To Do</span><span><span id="footSync"></span> <span id="syncState"></span></span><span>Hoggard · Wilmington NC</span></footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-bar"><div class="crumb">HTD /<b id="drawerCrumb"></b></div><button class="drawer-close" id="drawerClose" aria-label="Close">✕</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <dialog id="taskDialog">
+    <form method="dialog" id="taskForm" class="dlg">
+      <h3 id="taskDialogTitle">Task</h3>
+      <label>What<input name="title" required autocomplete="off"></label>
+      <div class="row2">
+        <label>Area
+          <select name="cat">
+            <option value="school">School</option><option value="college">College</option>
+            <option value="lawn">Lawn Lads</option><option value="volunteer">Volunteering</option>
+            <option value="health">Health</option><option value="training">Training</option><option value="other">Other</option>
+          </select>
+        </label>
+        <label>Due<input name="due" type="date"></label>
+      </div>
+      <div class="row2">
+        <label>Time needed (min)<input name="mins" type="number" min="5" step="5" value="30"></label>
+        <label>Priority<select name="pri"><option value="3">High</option><option value="2" selected>Medium</option><option value="1">Low</option></select></label>
+      </div>
+      <label id="clsWrap">Class (school)<select name="cls"><option value="">General / none</option><option value="tok">TOK</option><option value="hoa">IB HOA</option><option value="math">Math Analysis</option><option value="sehs">Sports Exercise</option><option value="english">English</option><option value="bio">Bio</option></select></label>
+      <label>Notes<textarea name="notes" rows="2"></textarea></label>
+      <div class="dlg-actions">
+        <button type="button" class="btn danger sm" id="taskDelete">Delete</button>
+        <span class="grow"></span>
+        <button type="button" class="btn ghost sm" id="taskCancel">Cancel</button>
+        <button class="btn solid sm">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="core.js"></script>
+  <script src="ui.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
