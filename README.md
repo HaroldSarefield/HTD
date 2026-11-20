@@ -2,7 +2,12 @@
 
 A free planner for school, college, Lawn Lads, volunteering, health and training. Everything runs on your Mac; no accounts and no paid services.
 
-## Run it
+## Website
+**https://haroldsarefield.github.io/HTD/**, protected by a password. It works the same way as the Storage Unit editor password: the GitHub access token is saved in the repo encrypted with your password. Unlike Storage Unit, all your tasks are encrypted too, so nothing is readable without the password. Encrypted data lives on the `data` branch, so saving doesn't rebuild the site.
+
+Updating the site after code changes: `git push` (GitHub Pages rebuilds in about a minute).
+
+## Run it on your Mac
 
 ```bash
 cd ~/HTD && python3 server.py
